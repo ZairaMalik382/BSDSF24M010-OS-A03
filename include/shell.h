@@ -1,3 +1,4 @@
+
 #ifndef SHELL_H
 #define SHELL_H
 
@@ -10,6 +11,7 @@
 #include <sys/wait.h>
 #include <errno.h>
 
+// Constants
 #define MAX_LEN 512
 #define MAXARGS 10
 #define ARGLEN 30
@@ -20,4 +22,7 @@ char* read_cmd(char* prompt, FILE* fp);
 char** tokenize(char* cmdline);
 int execute(char** arglist);
 
-#endif // SHELL_H
+// Built-in command handler
+int handle_builtin(char** arglist);
+
+#endif
